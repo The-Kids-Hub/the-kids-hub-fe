@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { getImagePath } from '@/app/utils/imageLoader'
 
 export function Footer() {
   return (
@@ -9,7 +10,7 @@ export function Footer() {
           {/* Logo and About */}
           <div className="col-span-1 md:col-span-1">
             <Image 
-              src="/logo.png"
+              src={getImagePath("/logo.png")}
               alt="The Kids Hub Logo"
               width={180}
               height={60}

@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { useAccount } from 'wagmi'
 import { ConnectKitButton } from 'connectkit'
 import { toast } from 'react-toastify'
+import { getImagePath } from '@/app/utils/imageLoader'
 
 interface TourCardProps {
   title: string
@@ -46,7 +47,7 @@ export function TourCard({ title, description, price, imageSrc, tourId }: TourCa
       {/* Image */}
       <div className="relative h-48 w-full">
         <Image 
-          src={imageSrc}
+          src={getImagePath(imageSrc)}
           alt={title}
           fill
           style={{ objectFit: 'cover' }}

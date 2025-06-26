@@ -6,6 +6,8 @@ const nextConfig = {
   trailingSlash: true,
   output: 'export',
   distDir: 'out',
+  basePath: process.env.NODE_ENV === 'production' ? '/the-kids-hub-fe' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/the-kids-hub-fe' : '',
   webpack: (config) => {
     // Handle MetaMask SDK and React Native dependencies
     config.resolve.alias = {

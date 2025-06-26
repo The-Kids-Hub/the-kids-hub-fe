@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Header } from '@/app/components/header'
 import { Footer } from '@/app/components/footer'
 import { TourCard } from '@/app/components/tour-card'
+import { getImagePath } from '@/app/utils/imageLoader'
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0">
           <Image 
-            src="/logo.png" 
+            src={getImagePath("/logo.png")} 
             alt="The Kids Hub Logo" 
             fill 
             priority
