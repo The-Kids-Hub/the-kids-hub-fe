@@ -1,0 +1,21 @@
+{
+  "name": "The Kids Hub Eco-Tourism",
+  "short_name": "Kids Hub Tours",
+  "description": "Authentic Tongan eco-tourism experiences with island tours, traditional villages, and local cuisine.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
