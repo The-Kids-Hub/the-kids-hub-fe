@@ -28,7 +28,7 @@ export default function BookingPage() {
   const [tour, setTour] = useState<Tour | null>(null);
   const [date, setDate] = useState<string>('');
   const [participants, setParticipants] = useState<number>(1);
-  const [paymentMethod, setPaymentMethod] = useState<number>(0); // 0: Crypto, 1: Fiat (via credit card)
+  const [paymentMethod, setPaymentMethod] = useState<number>(0); // 0: ETH, 1: RBTC, 2: Fiat (via credit card)
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   
   useEffect(() => {
@@ -100,11 +100,11 @@ export default function BookingPage() {
         const bookingId = Math.floor(Math.random() * 1000) + 1;
         
         // If using crypto payment method, process payment
-        if (paymentMethod === 0) {
+        if (paymentMethod === 0 || paymentMethod === 1) {
           // Calculate total price
           const totalPrice = (parseFloat(tour.price) * participants).toString();
-          
-          await processPayment(bookingId, totalPrice);
+          // Pass cryptocurrency type (0 for ETH, 1 for RBTC)
+          await processPayment(bookingId, totalPrice, paymentMethod);
         }
         
         toast.success('Booking completed successfully!');
@@ -220,8 +220,9 @@ export default function BookingPage() {
                 onChange={handlePaymentMethodChange}
                 required
               >
-                <option value={0}>Cryptocurrency (ETH)</option>
-                <option value={1}>Credit/Debit Card</option>
+                <option value={0}>Ethereum (ETH)</option>
+                <option value={1}>RSK Bitcoin (RBTC)</option>
+                <option value={2}>Credit/Debit Card</option>
               </select>
             </div>
             
@@ -235,9 +236,16 @@ export default function BookingPage() {
               </div>
               
               {paymentMethod === 0 && (
-                <div className="flex justify-between mb-2 text-tonga-red">
+                <div className="flex justify-between mb-2 text-blue-700">
                   <span>Crypto Payment (ETH)</span>
                   <span>{(parseFloat(tour.price) * participants).toFixed(4)} ETH</span>
+                </div>
+              )}
+              
+              {paymentMethod === 1 && (
+                <div className="flex justify-between mb-2 text-yellow-700">
+                  <span>Crypto Payment (RBTC)</span>
+                  <span>{(parseFloat(tour.price) * participants).toFixed(6)} RBTC</span>
                 </div>
               )}
               
@@ -248,6 +256,8 @@ export default function BookingPage() {
                 <span>
                   {paymentMethod === 0 
                     ? `${(parseFloat(tour.price) * participants).toFixed(4)} ETH`
+                    : paymentMethod === 1
+                    ? `${(parseFloat(tour.price) * participants).toFixed(6)} RBTC`
                     : `$${(parseFloat(tour.price) * participants * 1800).toFixed(2)} TOP`}
                 </span>
               </div>

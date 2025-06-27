@@ -21,7 +21,7 @@ interface TourOfferingsABI {
 
 interface PaymentProcessorABI {
   getFunction: (name: string) => any;
-  processPayment: (bookingId: number, amount: string) => Promise<any>;
+  processPayment: (bookingId: number, amount: string, cryptoType?: number) => Promise<any>;
   getPaymentStatus: (bookingId: number) => Promise<any>;
 }
 
@@ -87,7 +87,7 @@ export function useKidsHubContracts() {
   }, []);
 
   // Process a payment
-  const processPayment = useCallback(async (bookingId: number, amount: string) => {
+  const processPayment = useCallback(async (bookingId: number, amount: string, cryptoType: number = 0) => {
     if (!isConnected || !address) {
       toast.error('Please connect your wallet first');
       return null;
@@ -95,12 +95,18 @@ export function useKidsHubContracts() {
 
     setIsLoading(true);
     try {
+      // Determine which contract to use based on crypto type
+      // 0 = ETH, 1 = RBTC
+      const contractAddress = cryptoType === 0 ? 
+        CONTRACT_ADDRESSES.paymentProcessor : 
+        CONTRACT_ADDRESSES.rbtcPaymentProcessor; 
+        
       // This will be replaced with actual contract call after deployment
       const result = await writeContractAsync({
-        address: CONTRACT_ADDRESSES.paymentProcessor as `0x${string}`,
+        address: contractAddress as `0x${string}`,
         abi: [] as any, // Will be populated from JSON after deployment
         functionName: 'processPayment',
-        args: [bookingId],
+        args: [bookingId, cryptoType],
         value: ethers.parseEther(amount),
         account: address,
         chain: undefined // Will be determined by the connected wallet

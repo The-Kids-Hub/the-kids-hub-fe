@@ -44,7 +44,7 @@ const TOURS = [
     title: "Island Snorkeling",
     description: "Discover the vibrant marine life around Tonga's pristine coral reefs. Perfect for beginners and experienced snorkelers alike.",
     price: 79.99,
-    imageSrc: "/images/snorkeling-tour.jpg",
+    imageSrc: "/images/island-snorkeling.jpg",
     duration: "Half day (4 hours)",
     maxParticipants: 8,
     included: ["Boat transfer", "Snorkeling equipment", "Guide", "Refreshments"]
@@ -54,7 +54,7 @@ const TOURS = [
     title: "Cultural Performance",
     description: "Experience the power and beauty of traditional Tongan dance and music performances, including the famous Lakalaka dance.",
     price: 49.99,
-    imageSrc: "/images/cultural-tour.jpg",
+    imageSrc: "/images/cultural-performance.jpg",
     duration: "Evening (3 hours)",
     maxParticipants: 30,
     included: ["Traditional dinner", "Performance", "Transportation"]
@@ -64,7 +64,7 @@ const TOURS = [
     title: "Whale Watching",
     description: "Witness the majestic humpback whales during their migration season. Tonga is one of the few places where you can swim with these gentle giants (seasonal).",
     price: 149.99,
-    imageSrc: "/images/whale-tour.jpg",
+    imageSrc: "/images/whale-watching.jpg",
     duration: "Full day (6 hours)",
     maxParticipants: 8,
     included: ["Boat trip", "Guide", "Snacks", "Safety equipment"]
@@ -117,8 +117,12 @@ export default function ToursPage() {
             <div>
               <h3 className="font-semibold text-lg">Payment Methods</h3>
               <p className="text-gray-700">
-                We accept cryptocurrency payments (ETH) as well as traditional payment methods including credit/debit cards.
+                We accept cryptocurrency payments (ETH and RBTC) as well as traditional payment methods including credit/debit cards.
               </p>
+              <div className="mt-2 flex items-center space-x-3">
+                <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Ethereum (ETH)</span>
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">RSK Bitcoin (RBTC)</span>
+              </div>
             </div>
             
             <div>

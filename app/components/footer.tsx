@@ -83,7 +83,7 @@ export function Footer() {
             <address className="not-italic text-gray-300 space-y-2">
               <p>Vaini, Tongatapu</p>
               <p>Kingdom of Tonga</p>
-              <p>Email: thekidshub@pasifika.xyz</p>
+              <p>Email: info@thekidshub.work</p>
               <p>Phone: +676 7752039</p>
             </address>
             
