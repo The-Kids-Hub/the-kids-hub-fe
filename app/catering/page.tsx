@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Header } from '@/app/components/header'
 import { Footer } from '@/app/components/footer'
+import { getImagePath } from '@/app/utils/imageLoader'
 
 interface CateringItem {
   id: number
@@ -164,9 +165,13 @@ export default function CateringPage() {
           {filteredItems.map(item => (
             <div key={item.id} className="bg-white rounded-lg overflow-hidden shadow-md">
               <div className="relative h-48">
-                <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500">Image placeholder</span>
-                </div>
+                <Image 
+                  src={getImagePath(item.image)}
+                  alt={item.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-start mb-2">

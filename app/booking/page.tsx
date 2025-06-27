@@ -8,6 +8,7 @@ import { Footer } from '@/app/components/footer';
 import { useKidsHubContracts } from '@/app/contracts/ContractHook';
 import { useConnect, useAccount } from 'wagmi';
 import { toast } from 'react-toastify';
+import { getImagePath } from '@/app/utils/imageLoader';
 
 interface Tour {
   id: number;
@@ -146,7 +147,7 @@ export default function BookingPage() {
             <div className="md:flex">
               <div className="md:w-2/5 relative h-64 md:h-auto">
                 <Image 
-                  src="/images/tour-placeholder.jpg" 
+                  src={getImagePath('/images/tour-placeholder.jpg')}
                   alt={tour.name}
                   fill
                   style={{ objectFit: 'cover' }}
