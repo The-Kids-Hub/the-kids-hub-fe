@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative w-full h-[600px]">
         <div className="absolute inset-0 bg-black/40 z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl font-bold text-white mb-4">Experience Authentic Tongan Culture</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Experience Authentic Tongan Culture</h1>
           <p className="text-xl text-white mb-8 max-w-3xl">
             Join our eco-tourism island tours featuring historical sites, 
             traditional communal island life, and authentic Tongan cuisine

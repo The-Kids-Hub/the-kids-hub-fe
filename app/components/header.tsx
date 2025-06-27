@@ -13,7 +13,7 @@ export function Header() {
         {/* Site Title - Centered */}
         <div className="flex justify-center mb-3">
           <Link href="/" className="flex items-center">
-            <h1 className="text-6xl font-bold text-black font-kristen tracking-wide">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black font-kristen tracking-wide">
               The Kids Hub
             </h1>
           </Link>
