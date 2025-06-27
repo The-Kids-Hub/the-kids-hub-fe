@@ -5,7 +5,9 @@
   "description": "The Kids Hub Eco-Tourism Tour Operator Portal Frontend",
   "scripts": {
     "dev": "NODE_OPTIONS='--max-old-space-size=4096' next dev",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "clean": "rm -rf .next out .cache",
+    "dev:clean": "npm run clean && npm run dev",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' npm run clean && next build",
     "export": "NODE_OPTIONS='--max-old-space-size=4096' next export",
     "start": "NODE_OPTIONS='--max-old-space-size=4096' next start",
     "lint": "next lint"

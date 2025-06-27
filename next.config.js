@@ -6,12 +6,13 @@ const nextConfig = {
   trailingSlash: true,
   output: 'export',
   distDir: 'out',
-  // Only use basePath and assetPrefix for production builds
-  // Check if we are in a build/production environment
-  ...(process.env.NODE_ENV === 'production' ? {
-    basePath: '/the-kids-hub-fe',
-    assetPrefix: '/the-kids-hub-fe',
-  } : {}),
+  basePath: process.env.NODE_ENV === 'production' ? '/the-kids-hub-fe' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/the-kids-hub-fe' : '',
+  // Set proper cache directories to avoid ENOENT errors
+  experimental: {
+    // Disabling outputFileTracingRoot fixes issues with monorepo setups and Next.js
+    outputFileTracingRoot: undefined,
+  },
   webpack: (config) => {
     // Handle MetaMask SDK and React Native dependencies
     config.resolve.alias = {
