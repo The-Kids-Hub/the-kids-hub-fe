@@ -1,23 +1,14 @@
 /** @type {import('next').NextConfig} */
-
-// Check if we're using a custom domain
-// For local development or GitHub Pages subdirectory deployment, we need the basePath
-// For custom domain deployment, we don't want any basePath
-const isCustomDomain = process.env.NEXT_PUBLIC_CUSTOM_DOMAIN === 'true';
-
 const nextConfig = {
   images: {
     unoptimized: true,
-    // Add loader for GitHub Pages compatibility
-    loader: 'custom',
-    loaderFile: './app/utils/imageLoader.ts',
   },
   trailingSlash: true,
   output: 'export',
   distDir: 'out',
-  // Use basePath only when not using a custom domain
-  basePath: isCustomDomain ? '' : '/the-kids-hub-fe',
-  assetPrefix: isCustomDomain ? '' : '/the-kids-hub-fe',
+  // For GitHub Pages deployment at /the-kids-hub-fe subdirectory
+  basePath: '',
+  assetPrefix: '',
   // Set proper cache directories to avoid ENOENT errors
   experimental: {
     // Disabling outputFileTracingRoot fixes issues with monorepo setups and Next.js
