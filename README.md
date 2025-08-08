@@ -1,15 +1,36 @@
-# The Kids Hub Eco-Tourism Frontend
+# The Kids Hub - Food & Community Services Frontend
 
-This Next.js application serves as the frontend for The Kids Hub Eco-Tourism platform, providing an interface for booking island tours, managing payments (both fiat and cryptocurrency), and showcasing the various tour offerings including historical sites, traditional village experiences, and catering services.
+This Next.js application serves as the frontend for The Kids Hub platform, empowering communities through food services and mentorship programs. The platform provides an interface for ordering artisanal cakes & pastries, eco-friendly catering services, and applying for community mentorship programs that help young entrepreneurs in Tonga.
+
+## Our Services
+
+### 🎂 Artisanal Cakes & Pastries
+- Handcrafted desserts featuring traditional Tongan flavors
+- Premium local ingredients and traditional baking techniques
+- Custom designs available for special occasions
+- Coming Soon - Pre-orders available
+
+### 🌱 Eco-Friendly Catering Service
+- Sustainable catering using 100% organic, locally-sourced Tongan produce
+- Traditional island cuisine prepared with environmentally conscious practices
+- Zero waste practices and local produce sourcing
+- Coming Soon - Bookings available
+
+### 🤝 Community Mentorship Program
+- **FREE** entrepreneurship training for unemployed school leavers
+- One-on-one mentoring and practical workshops
+- Business skills development and ongoing support
+- Empowering young Tongans to become successful entrepreneurs
 
 ## Features
 
-- **Tour Booking System**: Browse and book tours with dates and number of participants
-- **Cryptocurrency Payments**: Integration with Ethereum-based payments on Arbitrum network
-- **Fiat Payment Options**: Traditional payment processing for non-crypto users
-- **Wallet Integration**: Using Dynamic and Wagmi for seamless wallet connections
-- **Tour Management**: Display of historical sites, village experiences, and culinary adventures
-- **Responsive Design**: Works on all device sizes
+- **Service Ordering System**: Browse and order cakes, pastries, and catering services
+- **Cryptocurrency Payments**: Bitcoin (BTC) and Ethereum (ETH) payments for food services
+- **Traditional Payment Options**: Credit/debit card processing for food orders
+- **Wallet Integration**: Using ConnectKit and Wagmi for seamless crypto payments
+- **Community Applications**: Free application system for mentorship programs
+- **Responsive Design**: Works perfectly on all device sizes
+- **Modern UI/UX**: Beautiful, accessible design with consistent branding
 
 ## Prerequisites
 
@@ -42,35 +63,37 @@ This Next.js application serves as the frontend for The Kids Hub Eco-Tourism pla
 
 ## Smart Contract Integration
 
-The frontend interacts with the following smart contracts:
+The frontend integrates with blockchain technology to enable cryptocurrency payments for food services:
 
-1. **TourOfferings**: Manages tour listings and details
-2. **PaymentProcessor**: Handles cryptocurrency payment processing
-3. **TourBooking**: Manages bookings and availability
+### Payment Processing
+1. **Bitcoin (BTC) Payments**: Direct Bitcoin payments for food orders
+2. **Ethereum (ETH) Payments**: Ethereum-based payment processing
+3. **PaymentProcessor**: Handles cryptocurrency payment processing for orders
+4. **ServiceBooking**: Manages service bookings and order tracking
 
-These smart contracts are deployed using the Foundry deployment script from the backend repository. The deployment process automatically generates contract files in the `app/contracts/` directory with the necessary ABIs and addresses.
+### Wallet Integration
+The platform uses modern Web3 wallet integration:
+- **ConnectKit**: Seamless wallet connection experience
+- **Wagmi**: React hooks for Ethereum interactions
+- **Multi-wallet support**: Compatible with MetaMask, WalletConnect, and other popular wallets
 
-### After Contract Deployment
+### Payment Methods
+- **🪙 Cryptocurrency**: Bitcoin (BTC) and Ethereum (ETH) for food services
+- **💳 Traditional**: Credit/debit cards for food orders
+- **🆓 Community Programs**: Completely free - no payment required
 
-Once the contracts are deployed using the `/home/user/Documents/pasifika-web3-tech-hub/the-kids-hub-be/deploy.sh` script, the contract JSON files and TypeScript utilities will be automatically generated in the `app/contracts/` directory.
+## Using the Payment System
 
-The generated files include:
-- `contracts.ts` - Contract addresses
-- `TourOfferings.json` - ABI and address
-- `PaymentProcessor.json` - ABI and address
-- `TourBooking.json` - ABI and address
-- TypeScript wrapper files for each contract
-
-## Using the Contracts
-
-You can import the contract wrappers in any component:
+The payment integration is handled through React hooks:
 
 ```typescript
-import { getTourOfferingsContract } from '@/app/contracts';
+import { useAccount } from 'wagmi';
+import { ConnectKitButton } from 'connectkit';
 import { useKidsHubContracts } from '@/app/contracts/ContractHook';
 
 // In your component
-const { bookTour, getTours, processPayment } = useKidsHubContracts();
+const { isConnected } = useAccount();
+const { processPayment } = useKidsHubContracts();
 ```
 
 ## Building for Production
@@ -83,13 +106,55 @@ yarn build
 
 The static output will be generated in the `out` directory, which can be deployed to any static hosting service like Netlify, Vercel, or AWS S3.
 
-## Catering Service Management
+## Platform Pages
 
-The platform includes features for managing catering services:
-- Browse local produce options
-- Explore traditional Tongan cuisines
-- Order baked goods for tour groups
+The website includes the following main sections:
+
+### 🏠 Homepage
+- Hero section showcasing our mission
+- Overview of all three core services
+- Call-to-action buttons for each service category
+
+### 🍰 Services Page
+- Detailed information about cakes & pastries
+- Eco-friendly catering service details
+- Community mentorship program overview
+- Payment method information
+
+### 🌿 Catering Page
+- Browse organic, locally-sourced menu options
+- Traditional Tongan cuisine offerings
+- Sustainable catering practices
+- Order placement system (Coming Soon)
+
+### 🤝 Community Page
+- Detailed mentorship program information
+- Application form for aspiring entrepreneurs
+- Program benefits and success stories
+- Free application process
+
+### 📋 Booking/Application Page
+- Service ordering for food items
+- Community program applications
+- Payment processing for food services
+- Application tracking and confirmation
 
 ## About The Kids Hub
 
-The Kids Hub is an eco-tourism tour operator in Tonga focusing on sustainable tourism practices that showcase authentic Tongan culture, traditions, and natural beauty. The platform aims to connect visitors with genuine cultural experiences while preserving Tonga's heritage.
+The Kids Hub is a community-focused organization in Tonga dedicated to empowering local communities through food services and entrepreneurship mentorship. Our mission is to:
+
+- **Preserve Traditional Flavors**: Create artisanal cakes and pastries using traditional Tongan ingredients and techniques
+- **Promote Sustainability**: Provide eco-friendly catering services using 100% organic, locally-sourced produce
+- **Empower Youth**: Offer free mentorship programs to help unemployed school leavers become successful entrepreneurs
+- **Build Community**: Strengthen local communities through food, education, and economic opportunities
+
+We believe in the power of combining traditional Tongan culture with modern entrepreneurship to create sustainable economic opportunities for young people while preserving our heritage.
+
+## Technology Stack
+
+- **Frontend**: Next.js 13+ with App Router
+- **Styling**: Tailwind CSS for responsive design
+- **Web3 Integration**: Wagmi + ConnectKit for wallet connections
+- **Cryptocurrency**: Bitcoin (BTC) and Ethereum (ETH) payment support
+- **TypeScript**: Full type safety throughout the application
+- **Deployment**: Static export compatible with major hosting platforms
