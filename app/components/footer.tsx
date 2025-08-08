@@ -17,9 +17,8 @@ export function Footer() {
               className="h-12 w-auto mb-4"
             />
             <p className="text-gray-300 text-sm mt-4">
-              The Kids Hub provides authentic eco-tourism experiences in Tonga, 
-              featuring island tours, traditional village experiences, and 
-              local cuisine.
+              The Kids Hub empowers Tongan communities through artisanal food services, 
+              eco-friendly catering, and entrepreneurship mentoring programs for youth.
             </p>
           </div>
           
@@ -33,8 +32,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tours" className="text-gray-300 hover:text-white transition-colors">
-                  Tours
+                <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  Services
                 </Link>
               </li>
               <li>
@@ -50,28 +49,28 @@ export function Footer() {
             </ul>
           </div>
           
-          {/* Tours */}
+          {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Tours</h3>
+            <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/tours/historical" className="text-gray-300 hover:text-white transition-colors">
-                  Historical Sites
+                <Link href="/services/bakery" className="text-gray-300 hover:text-white transition-colors">
+                  Cakes & Pastries
                 </Link>
               </li>
               <li>
-                <Link href="/tours/village" className="text-gray-300 hover:text-white transition-colors">
-                  Village Experience
+                <Link href="/catering" className="text-gray-300 hover:text-white transition-colors">
+                  Eco-Friendly Catering
                 </Link>
               </li>
               <li>
-                <Link href="/tours/culinary" className="text-gray-300 hover:text-white transition-colors">
-                  Culinary Tours
+                <Link href="/community" className="text-gray-300 hover:text-white transition-colors">
+                  Community Mentorship
                 </Link>
               </li>
               <li>
-                <Link href="/tours/custom" className="text-gray-300 hover:text-white transition-colors">
-                  Custom Tours
+                <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  All Services
                 </Link>
               </li>
             </ul>
@@ -109,7 +108,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} The Kids Hub Eco-Tourism. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} The Kids Hub Community Services. All rights reserved.</p>
           <p className="mt-2">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy

@@ -18,52 +18,68 @@ interface CateringItem {
 const CATERING_ITEMS: CateringItem[] = [
   {
     id: 1,
-    name: 'Fresh Coconuts',
-    description: 'Organic coconuts harvested from local farms, perfect for refreshing drinks.',
-    price: 5.99,
+    name: 'Organic Fresh Coconuts',
+    description: 'Certified organic coconuts from local sustainable farms, perfect for refreshing drinks and cooking.',
+    price: 6.99,
     category: 'local-produce',
     image: '/images/coconut.jpg'
   },
   {
     id: 2,
-    name: 'Tropical Fruit Platter',
-    description: 'Selection of seasonal Tongan fruits including papaya, pineapple, and mango.',
-    price: 35.99,
+    name: 'Seasonal Organic Fruit Platter',
+    description: 'Handpicked seasonal Tongan fruits including organic papaya, pineapple, and mango from local farms.',
+    price: 39.99,
     category: 'local-produce',
     image: '/images/fruit-platter.jpg'
   },
   {
     id: 3,
-    name: 'Ota Ika (Raw Fish Salad)',
-    description: 'Fresh fish marinated in coconut milk and citrus, a traditional Tongan delicacy.',
-    price: 24.99,
+    name: 'Sustainable Ota Ika (Raw Fish Salad)',
+    description: 'Locally-caught fresh fish marinated in organic coconut milk and citrus, prepared traditionally.',
+    price: 29.99,
     category: 'cuisine',
     image: '/images/ota-ika.jpg'
   },
   {
     id: 4,
-    name: 'Lu Pulu (Corned Beef and Taro Leaves)',
-    description: 'Corned beef and onions wrapped in taro leaves and cooked in coconut cream.',
-    price: 28.99,
+    name: 'Organic Lu Pulu (Taro Leaves & Local Beef)',
+    description: 'Grass-fed local beef and onions wrapped in organic taro leaves, cooked in fresh coconut cream.',
+    price: 32.99,
     category: 'cuisine',
     image: '/images/lu-pulu.jpg'
   },
   {
     id: 5,
-    name: 'Coconut Bread',
-    description: 'Freshly baked bread with coconut flavor, a local favorite.',
-    price: 12.99,
+    name: 'Artisanal Coconut Bread',
+    description: 'Freshly baked bread using organic coconut flour and traditional methods, a local favorite.',
+    price: 0,
     category: 'baked-goods',
     image: '/images/coconut-bread.jpg'
   },
   {
     id: 6,
-    name: 'Tongan Vanilla Cake',
-    description: 'Delicious cake made with local Tongan vanilla, perfect for celebrations.',
-    price: 45.99,
+    name: 'Premium Tongan Vanilla Cake',
+    description: 'Exquisite cake made with locally-grown organic Tongan vanilla, perfect for special celebrations.',
+    price: 49.99,
     category: 'baked-goods',
     image: '/images/vanilla-cake.jpg'
   },
+  {
+    id: 7,
+    name: 'Farm-Fresh Vegetable Medley',
+    description: 'Seasonal organic vegetables from local farms, prepared with traditional Tongan spices.',
+    price: 22.99,
+    category: 'local-produce',
+    image: '/images/vegetable-medley.jpg'
+  },
+  {
+    id: 8,
+    name: 'Organic Kava Root',
+    description: 'Premium organic kava root sourced from certified local growers, traditionally prepared.',
+    price: 18.99,
+    category: 'local-produce',
+    image: '/images/kava-root.jpg'
+  }
 ]
 
 export default function CateringPage() {
@@ -101,17 +117,27 @@ export default function CateringPage() {
   }, 0)
   
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col items-center">
       <Header />
       
-      <div className="bg-tonga-red text-white py-16 text-center">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Catering Services</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Experience authentic Tongan cuisine with our catering options.
-            From local produce to traditional dishes and freshly baked goods,
-            we offer complete catering solutions for your eco-tourism adventure.
+      {/* Hero Section */}
+      <div className="relative w-full h-[600px]">
+        <div className="absolute inset-0 bg-black/40 z-10 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">Eco-Friendly Catering Services</h1>
+          <p className="text-xl text-white mb-8 max-w-3xl">
+            Sustainable catering using 100% organic, locally-sourced Tongan produce.
+            From farm-fresh ingredients to traditional island cuisine and artisanal baked goods,
+            we provide eco-conscious catering that supports our local farming community.
           </p>
+        </div>
+        <div className="absolute inset-0">
+          <Image 
+            src={getImagePath("/logo.png")} 
+            alt="The Kids Hub Logo" 
+            fill 
+            priority
+            style={{objectFit: 'contain'}}
+          />
         </div>
       </div>
       
@@ -136,7 +162,7 @@ export default function CateringPage() {
                 : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
             } transition-colors`}
           >
-            Local Produce
+            Organic Local Produce
           </button>
           <button 
             onClick={() => setActiveCategory('cuisine')}
@@ -146,7 +172,7 @@ export default function CateringPage() {
                 : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
             } transition-colors`}
           >
-            Traditional Cuisine
+            Sustainable Cuisine
           </button>
           <button 
             onClick={() => setActiveCategory('baked-goods')}
@@ -156,7 +182,7 @@ export default function CateringPage() {
                 : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
             } transition-colors`}
           >
-            Baked Goods
+            Artisanal Baked Goods
           </button>
         </div>
         
@@ -202,8 +228,8 @@ export default function CateringPage() {
                   
                   <div>
                     <span className="text-xs text-gray-500 uppercase tracking-wide">
-                      {item.category === 'local-produce' ? 'Local Produce' : 
-                       item.category === 'cuisine' ? 'Traditional Cuisine' : 'Baked Goods'}
+                      {item.category === 'local-produce' ? 'Organic Local Produce' : 
+                       item.category === 'cuisine' ? 'Sustainable Cuisine' : 'Artisanal Baked Goods'}
                     </span>
                   </div>
                 </div>

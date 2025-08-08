@@ -24,17 +24,20 @@ export function Header() {
           <Link href="/" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
             Home
           </Link>
-          <Link href="/tours" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
-            Tours
+          <Link href="/services" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
+            Services
+          </Link>
+          <Link href="/catering" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
+            Catering
+          </Link>
+          <Link href="/community" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
+            Community
           </Link>
           <Link href="/about" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
             About Us
           </Link>
           <Link href="/contact" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
             Contact
-          </Link>
-          <Link href="/bookings" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
-            My Bookings
           </Link>
         </nav>
 
@@ -60,8 +63,14 @@ export function Header() {
             <Link href="/" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
               Home
             </Link>
-            <Link href="/tours" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
-              Tours
+            <Link href="/services" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
+              Services
+            </Link>
+            <Link href="/catering" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
+              Catering
+            </Link>
+            <Link href="/community" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
+              Community
             </Link>
             <Link href="/about" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
               About Us
@@ -69,11 +78,6 @@ export function Header() {
             <Link href="/contact" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
               Contact
             </Link>
-            <Link href="/bookings" className="text-gray-800 font-medium hover:text-tonga-red transition-colors">
-              My Bookings
-            </Link>
-            
-            {/* Removed wallet connect button from mobile menu */}
           </nav>
         </div>
       )}

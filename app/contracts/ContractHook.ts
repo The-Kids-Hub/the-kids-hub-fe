@@ -96,7 +96,7 @@ export function useKidsHubContracts() {
     setIsLoading(true);
     try {
       // Determine which contract to use based on crypto type
-      // 0 = ETH, 1 = RBTC
+      // 0 = ETH, 1 = BTC
       const contractAddress = cryptoType === 0 ? 
         CONTRACT_ADDRESSES.paymentProcessor : 
         CONTRACT_ADDRESSES.rbtcPaymentProcessor; 

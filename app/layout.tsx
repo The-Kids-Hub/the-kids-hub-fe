@@ -6,15 +6,16 @@ import React from 'react'
 // Using system fonts instead of Google Fonts to avoid download errors
 
 export const metadata: Metadata = {
-  title: 'The Kids Hub - Eco-Tourism Tours',
-  description: 'Experience authentic Tongan culture through eco-tourism with The Kids Hub. Island tours, traditional experiences, and local cuisine.',
-  keywords: 'Tonga, eco-tourism, island tours, traditional culture, local cuisine, Web3, crypto payments',
+  title: 'The Kids Hub - Food & Community Services',
+  description: 'Empowering communities through artisanal cakes & pastries, eco-friendly catering, and mentorship programs for young entrepreneurs in Tonga.',
+  keywords: 'Tonga, cakes, pastries, catering, organic food, community mentorship, entrepreneurship, Web3, crypto payments',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.png',
     apple: '/logo.png',
+    shortcut: '/logo.png',
   },
   manifest: '/manifest.json',
-  applicationName: 'The Kids Hub Eco-Tourism',
+  applicationName: 'The Kids Hub',
   authors: [{ name: 'The Kids Hub' }],
   creator: 'The Kids Hub',
   publisher: 'The Kids Hub',
